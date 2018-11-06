@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER wangsh<462620215@qq.com>
+MAINTAINER sdearn<540797670@qq.com>
 
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
