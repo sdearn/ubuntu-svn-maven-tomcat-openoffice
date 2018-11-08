@@ -42,9 +42,8 @@ RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
-    && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz
-   
-RUN cd zh-CN/DEBS && sudo dpkg -i *.deb && cd desktop-integration/ && sudo dpkg -i openoffice4.1-debian-menus_4.1.3-9783_all.deb
+    && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
+    && cd zh-CN/DEBS && sudo dpkg -i *.deb && cd desktop-integration/ && sudo dpkg -i openoffice4.1-debian-menus_4.1.3-9783_all.deb
 
 
 EXPOSE 8080
