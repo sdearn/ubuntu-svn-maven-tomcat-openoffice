@@ -25,7 +25,7 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/settin
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
-ADD docker-entrypoint.sh entrypoint.sh
+ADD docker-entrypoint.sh docker-entrypoint.sh
 
 RUN mkdir /work && mv docker-entrypoint.sh /work/
 
