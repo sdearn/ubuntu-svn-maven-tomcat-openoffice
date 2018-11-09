@@ -19,7 +19,7 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
-ADD docker-entrypoint.sh docker-entrypoint.sh
+ADD docker-entrypoint.sh entrypoint.sh
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/settings.xml \
     && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
