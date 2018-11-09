@@ -19,19 +19,17 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/settings.xml \
-    && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
-    
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/java.security \
-    && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
+ADD file/ work/
 
-ADD docker-entrypoint.sh docker-entrypoint.sh
+WORKDIR /work
+
+RUN mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
+    
+RUN mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
 RUN mkdir /work && mv docker-entrypoint.sh /work/
 
 RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
-
-WORKDIR /work
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-tomcat-7.0.82.zip \
      && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
