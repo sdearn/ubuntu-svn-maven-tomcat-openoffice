@@ -24,11 +24,9 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/settin
     
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
-    
-RUN mkdir /work
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/openfile/entrypoint.sh \
-    && mv entrypoint.sh /work/ 
+    && mkdir /work && mv entrypoint.sh /work/ 
 
 RUN ["chmod", "+x", "/work/entrypoint.sh"]
 
