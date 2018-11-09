@@ -43,7 +43,8 @@ RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
     && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz
-RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb && cd /work/zh-CN/DEBS/desktop-integration/ && sudo dpkg -i openoffice4.1-debian-menus_4.1.3-9783_all.deb
+RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
+RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.3-9783_all.deb
     
 RUN cd /opt/openoffice4/program/ && soffice --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard &
 
