@@ -27,8 +27,6 @@ RUN mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
 RUN mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
-RUN mkdir /work && mv docker-entrypoint.sh /work/
-
 RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-tomcat-7.0.82.zip \
