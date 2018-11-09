@@ -19,6 +19,15 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
+    && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz
+    
+RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
+
+RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
+
+WORKDIR /
+
 ADD file/ work/
 
 WORKDIR /work
@@ -40,15 +49,6 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
-    && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz
-    
-RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
-
-RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
-
-
-WORKDIR /work 
 
 EXPOSE 8080
 EXPOSE 8100
