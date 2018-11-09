@@ -52,5 +52,6 @@ RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian
 WORKDIR /work 
 
 EXPOSE 8080
+EXPOSE 8100
 
 ENTRYPOINT ["/work/entrypoint.sh"]
