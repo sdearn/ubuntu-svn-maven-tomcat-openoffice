@@ -46,7 +46,7 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache
     
 RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
 
-RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.3-9783_all.deb
+RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
 
 
 WORKDIR /work 
