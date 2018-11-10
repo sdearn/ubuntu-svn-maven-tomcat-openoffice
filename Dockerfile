@@ -48,4 +48,4 @@ WORKDIR /work
 EXPOSE 8080
 EXPOSE 8100
 
-ENTRYPOINT ["/work/docker-entrypoint.sh"]
+#ENTRYPOINT ["/work/docker-entrypoint.sh"]
