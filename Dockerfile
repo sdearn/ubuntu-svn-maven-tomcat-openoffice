@@ -10,7 +10,7 @@ RUN sudo apt-get update \
     && sudo apt-get install -y openjdk-7-jre \
     && sudo apt-get install -y wget \
     && sudo apt-get install -y zip \
-    && sudo apt-get install -y vim
+    && sudo apt-get install -y vim \
     && sudo apt-get install -y xvfb
  
 RUN echo "export JAVA_HOME=/usr/lib/jvm/Java-7-openjdk-amd64">>/etc/profile
