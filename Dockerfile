@@ -20,11 +20,11 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
-ADD file/ file/
+ADD file/ work/
 
-ADD file/docker-entrypoint.sh work/docker-entrypoint.sh
-ADD file/settings.xml work/settings.xml
-ADD file/java.security work/java.security
+#ADD file/docker-entrypoint.sh work/docker-entrypoint.sh
+#ADD file/settings.xml work/settings.xml
+#ADD file/java.security work/java.security
 
 WORKDIR /work
 
@@ -34,24 +34,20 @@ RUN mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
 RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
 
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-tomcat-7.0.82.zip \
-     && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
+RUN unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
 
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-maven-3.3.9-bin.zip \
-    && unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
+RUN unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
-
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz \
-    && tar -zxvf Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz && rm -f Apache_OpenOffice_4.1.5_Linux_x86-64_install-deb_zh-CN.tar.gz
     
-RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
+RUN cd /work/Apache_OpenOffice_zh-CN/DEBS && sudo dpkg -i *.deb
 
-RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
+RUN cd /work/Apache_OpenOffice_zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
 
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/fonts.zip \
-    && unzip fonts.zip && rm -f fonts.zip && mv fonts/* /opt/openoffice4/share/fonts/truetype/ && rm -rf fonts
+RUN cd /work && rm -rf Apache_OpenOffice_zh-CN
+
+RUN mv fonts/* /opt/openoffice4/share/fonts/truetype/ && rm -rf fonts
 
 WORKDIR /work
 
