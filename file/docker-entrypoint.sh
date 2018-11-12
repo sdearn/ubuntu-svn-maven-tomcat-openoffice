@@ -28,6 +28,6 @@ sed -i "2i JAVA_OPTS=\"$JAVA_OPTS -Dfile.encoding=UTF8  -Duser.timezone=GMT+08\"
 chmod +x /work/tomcat/bin/catalina.sh
 
 cd /opt/openoffice4/program/
-soffice --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard &
+xvfb-run -a soffice -headless -nologo -norestore -nofirststartwizard -accept="socket,host=127.0.0.1,port=8100;urp;"
 
 /work/tomcat/bin/catalina.sh run
