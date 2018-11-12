@@ -29,9 +29,11 @@ RUN mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
 RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
 
-RUN mkdir tomcat && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-tomcat-7.0.82.zip \
+     && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
 
-RUN mkdir maven && unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-maven-3.3.9-bin.zip \
+    && unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
@@ -48,4 +50,4 @@ WORKDIR /work
 EXPOSE 8080
 EXPOSE 8100
 
-#ENTRYPOINT ["/work/docker-entrypoint.sh"]
+ENTRYPOINT ["/work/docker-entrypoint.sh"]
