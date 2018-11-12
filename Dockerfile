@@ -56,6 +56,5 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/fonts.
 WORKDIR /work
 
 EXPOSE 8080
-EXPOSE 8100
 
 ENTRYPOINT ["/work/docker-entrypoint.sh"]
