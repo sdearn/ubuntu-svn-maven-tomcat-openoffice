@@ -51,7 +51,7 @@ RUN cd /work/zh-CN/DEBS && sudo dpkg -i *.deb
 RUN cd /work/zh-CN/DEBS/desktop-integration && sudo dpkg -i openoffice4.1-debian-menus_4.1.5-9789_all.deb
 
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/fonts.zip \
-    && unzip fonts.zip && rm -f fonts.zip && mv fonts/* /opt/openoffice4/share/fonts/ && rm -rf fonts
+    && unzip fonts.zip && rm -f fonts.zip && mv fonts/* /opt/openoffice4/share/fonts/truetype/ && rm -rf fonts
 
 WORKDIR /work
 
