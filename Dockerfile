@@ -19,7 +19,9 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
-ADD file/ work/
+ADD file/docker-entrypoint.sh work/docker-entrypoint.sh
+ADD file/settings.xml work/settings.xml
+ADD file/java.security work/java.security
 
 WORKDIR /work
 
