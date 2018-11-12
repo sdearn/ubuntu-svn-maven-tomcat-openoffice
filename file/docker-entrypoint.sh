@@ -9,25 +9,25 @@ environment="${ENVIRONMENT:-pom.xml.test}"
 
 mkdir project
 
-#echo "yes" | svn co --username=${SVN_USER} --password=${SVN_PWD}  ${SVN_URL} project/${app_name}
+echo "yes" | svn co --username=${SVN_USER} --password=${SVN_PWD}  ${SVN_URL} project/${app_name}
 
-#cd  project/${app_name}
+cd  project/${app_name}
 
-#yes|cp -r ${environment} pom.xml
+yes|cp -r ${environment} pom.xml
 
-#../../maven/bin/mvn ${build_cmd}
+../../maven/bin/mvn ${build_cmd}
 
-#cd ../../
+cd ../../
 
-#mv tomcat/webapps/ROOT tomcat/webapps/ROOT.bak
+mv tomcat/webapps/ROOT tomcat/webapps/ROOT.bak
 
-#cp project/${app_name}/target/${build_file} tomcat/webapps
+cp project/${app_name}/target/${build_file} tomcat/webapps
 
-#sed -i "2i JAVA_OPTS=\"$JAVA_OPTS -Dfile.encoding=UTF8  -Duser.timezone=GMT+08\"" /work/tomcat/bin/catalina.sh
+sed -i "2i JAVA_OPTS=\"$JAVA_OPTS -Dfile.encoding=UTF8  -Duser.timezone=GMT+08\"" /work/tomcat/bin/catalina.sh
 
-#chmod +x /work/tomcat/bin/catalina.sh
+chmod +x /work/tomcat/bin/catalina.sh
 
 #cd /opt/openoffice4/program/
 #soffice --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard &
 
-#/work/tomcat/bin/catalina.sh run
+/work/tomcat/bin/catalina.sh run
