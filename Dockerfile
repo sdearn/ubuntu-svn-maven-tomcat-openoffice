@@ -5,7 +5,7 @@ MAINTAINER sdearn<540797670@qq.com>
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN sudo apt-get update
+RUN sudo apt-get update --fix-missing
 RUN sudo apt-get install -y wget
 RUN sudo apt-get install -y zip
 RUN sudo apt-get install -y vim
