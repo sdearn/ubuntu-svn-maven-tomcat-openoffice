@@ -5,21 +5,21 @@ MAINTAINER sdearn<540797670@qq.com>
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	
-RUN sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+#RUN sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
 ADD file/ work/
 
-RUN sudo mv /work/sources.list /etc/apt/sources.list
+#RUN sudo mv /work/sources.list /etc/apt/sources.list
 
 RUN sudo apt-get update
 
-RUN sudo rm /var/lib/dpkg/lock
+#RUN sudo rm /var/lib/dpkg/lock
 
-RUN sudo rm /var/cache/apt/archives/lock
+#RUN sudo rm /var/cache/apt/archives/lock
 
-RUN sudo apt-get install -y software-properties-common
+#RUN sudo apt-get install -y software-properties-common
 
-RUN sudo add-apt-repository ppa:openjdk-r/ppa
+#RUN sudo add-apt-repository ppa:openjdk-r/ppa
 
 RUN sudo apt-get install -y openjdk-7-jdk \
     && sudo apt-get install -y openjdk-7-jre \
