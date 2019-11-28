@@ -4,6 +4,12 @@ MAINTAINER sdearn<540797670@qq.com>
 
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+	
+RUN sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+ADD file/ work/
+
+RUN sudo mv /work/sources.list /etc/apt/sources.list
 
 RUN sudo apt-get update \
     && sudo apt-get install -y openjdk-7-jdk \
@@ -20,7 +26,6 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
-ADD file/ work/
 
 #ADD file/docker-entrypoint.sh work/docker-entrypoint.sh
 #ADD file/settings.xml work/settings.xml
