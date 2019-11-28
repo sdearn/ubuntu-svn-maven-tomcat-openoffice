@@ -13,7 +13,7 @@ RUN sudo mv /work/sources.list /etc/apt/sources.list
 
 RUN sudo apt-get update
 
-RUN sudo apt-get install -y software-properties-common python-software-properties
+RUN sudo apt-get install -y software-properties-common
 
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 
