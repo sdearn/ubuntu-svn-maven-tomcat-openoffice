@@ -6,12 +6,12 @@ RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 RUN sudo apt-get update
-RUN sudo apt-get install -y openjdk-7-jdk
-RUN sudo apt-get install -y openjdk-7-jre
 RUN sudo apt-get install -y wget
 RUN sudo apt-get install -y zip
 RUN sudo apt-get install -y vim
 RUN sudo apt-get install -y xvfb
+RUN sudo apt-get install -y openjdk-7-jdk
+RUN sudo apt-get install -y openjdk-7-jre
  
 RUN echo "export JAVA_HOME=/usr/lib/jvm/Java-7-openjdk-amd64">>/etc/profile
 RUN echo "export JRE_HOME=$JAVA_HOME/jre">>/etc/profile
