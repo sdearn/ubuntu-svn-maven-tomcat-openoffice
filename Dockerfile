@@ -11,10 +11,13 @@ ADD file/ work/
 
 RUN sudo mv /work/sources.list /etc/apt/sources.list
 
+RUN sudo apt-get update
+
+RUN sudo apt-get install software-properties-common python-software-properties
+
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 
-RUN sudo apt-get update \
-    && sudo apt-get install -y openjdk-7-jdk \
+RUN sudo apt-get install -y openjdk-7-jdk \
     && sudo apt-get install -y openjdk-7-jre \
     && sudo apt-get install -y wget \
     && sudo apt-get install -y zip \
