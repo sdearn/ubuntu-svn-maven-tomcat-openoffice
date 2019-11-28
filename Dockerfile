@@ -13,6 +13,10 @@ RUN sudo mv /work/sources.list /etc/apt/sources.list
 
 RUN sudo apt-get update
 
+RUN sudo rm /var/lib/dpkg/lock
+
+RUN sudo rm /var/cache/apt/archives/lock
+
 RUN sudo apt-get install -y software-properties-common
 
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
