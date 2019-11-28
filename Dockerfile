@@ -2,16 +2,21 @@ FROM ubuntu:14.04
 
 MAINTAINER sdearn<540797670@qq.com>
 
-RUN sudo rm -f /etc/localtime
-RUN sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN sudo rm -f /etc/localtime \
+    && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN apt-get update
-RUN apt-get install -y wget
-RUN apt-get install -y zip
-RUN apt-get install -y vim
-RUN apt-get install -y xvfb
-RUN apt-get install -y openjdk-7-jdk
-RUN apt-get install -y openjdk-7-jre
+RUN sudo apt-get update && apt-get install -y apt-transport-https
+
+RUN echo "deb http://private-repo-1.hortonworks.com/HDP/ubuntu14/2.x/updates/2.4.2.0 HDP main" >> /etc/apt/sources.list.d/HDP.list
+RUN echo "deb http://private-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/ubuntu14 HDP-UTILS main"  >> /etc/apt/sources.list.d/HDP.list
+RUN echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/azurecore/ trusty main" >> /etc/apt/sources.list.d/azure-public-trusty.list
+
+RUN sudo apt-get install -y wget
+RUN sudo apt-get install -y zip
+RUN sudo apt-get install -y vim
+RUN sudo apt-get install -y xvfb
+RUN sudo apt-get install -y openjdk-7-jdk
+RUN sudo apt-get install -y openjdk-7-jre
  
 RUN echo "export JAVA_HOME=/usr/lib/jvm/Java-7-openjdk-amd64">>/etc/profile
 RUN echo "export JRE_HOME=$JAVA_HOME/jre">>/etc/profile
