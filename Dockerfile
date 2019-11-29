@@ -11,7 +11,7 @@ ADD file/ work/
 
 #RUN sudo mv /work/sources.list /etc/apt/sources.list
 
-RUN sudo apt-get update
+RUN sudo apt-get update --fix-missing
 
 #RUN sudo rm /var/lib/dpkg/lock
 
