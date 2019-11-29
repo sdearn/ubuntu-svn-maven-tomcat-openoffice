@@ -4,23 +4,9 @@ MAINTAINER sdearn<540797670@qq.com>
 
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-	
-#RUN sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
-ADD file/ work/
-
-#RUN sudo mv /work/sources.list /etc/apt/sources.list
 
 RUN sudo apt-get update --fix-missing
-
-#RUN sudo rm /var/lib/dpkg/lock
-
-#RUN sudo rm /var/cache/apt/archives/lock
-
-#RUN sudo apt-get install -y software-properties-common
-
-#RUN sudo add-apt-repository ppa:openjdk-r/ppa
-
 RUN sudo apt-get install -y openjdk-7-jdk \
     && sudo apt-get install -y openjdk-7-jre \
     && sudo apt-get install -y wget \
@@ -34,13 +20,9 @@ RUN echo "export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH">>/etc/profil
 RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get update --fix-missing
-
 RUN sudo apt-get install -y subversion
 
-
-#ADD file/docker-entrypoint.sh work/docker-entrypoint.sh
-#ADD file/settings.xml work/settings.xml
-#ADD file/java.security work/java.security
+ADD file/ work/
 
 WORKDIR /work
 
