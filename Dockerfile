@@ -33,6 +33,8 @@ RUN echo "export JRE_HOME=$JAVA_HOME/jre">>/etc/profile
 RUN echo "export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH">>/etc/profile
 RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
+RUN sudo apt-get update --fix-missing
+
 RUN sudo apt-get install -y subversion
 
 
